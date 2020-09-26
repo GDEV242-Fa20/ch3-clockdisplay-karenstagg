@@ -11,6 +11,7 @@
  * 
  * @author Karen Stagg
  * @version September 26,2020
+ * Week 3 - Lab 3.38
  */
 public class ClockDisplay
 {
