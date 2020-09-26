@@ -74,6 +74,41 @@ public class ClockDisplay
     }
     
     /**
+     * Return the current time of this 24 hour display in the 12 hour format 
+     * of HH:MM AM/PM.
+     */
+    public String get24HourInternalDisplay()
+    {
+        //Create a local variable to hold current value of hour for analysis.
+        int hourValue;
+        
+        //Create a local variable to hold AM or PM, default of AM.
+        String daytimeOrNitetime = "AM";
+        
+        //Get the current value of hours object and store in hourValue.
+        hourValue = hours.getValue();
+        
+        //Reduce hour to a 12 hour clock value. If hourValue > 12, subtract
+        //12 hours and change daytimeOrNitetime value to PM.
+        if (hourValue >= 12)
+        {
+            hourValue = hourValue - 12;
+            daytimeOrNitetime = "PM";
+        }
+        
+        //If the hourValue is = 0, set to 12.
+        if (hourValue == 0)
+        {
+            hourValue = 12;
+        }    
+        
+        //Create the display string to return.
+        displayString = hourValue + ":" + minutes.getDisplayValue() + " "
+                        + daytimeOrNitetime;
+        return displayString;             
+        
+    }
+    /**
      * Update the internal string that represents the display.
      */
     private void updateDisplay()
