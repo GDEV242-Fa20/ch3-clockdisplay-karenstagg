@@ -1,9 +1,9 @@
 
 /**
  * This ClockDisplay class implements a digital clock display for a
- * 12 hour clock. The clock shows hours, minutes and AM or PM meridian. 
+ * 12 hour clock. The clock shows hours, minutes and AM or PM. 
  * The range of the clock is 12:00 AM (midnight) to 11:59 PM (one minute 
- * before midnight).
+ * before midnight), using AM or PM variable to denote the time of day.
  * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
