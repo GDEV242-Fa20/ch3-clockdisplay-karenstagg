@@ -74,11 +74,30 @@ public class ClockDisplay
     }
     
     /**
-     * Return the current time of this display in the format HH:MM.
+     * Return the current time of this display in the format HH:MM AM/PM.
      */
     public String get12HourInternalDisplay()
     {
-        return displayString;
+        //Create a local variable to hold current value of hour for analysis.
+        int hourValue;
+        
+        //Create a local variable to hold AM or PM, default of AM.
+        String daytimeOrNitetime = "AM";
+        
+        //Get the current value of hours object and store in hourValue.
+        hourValue = hours.getValue();
+        
+        //If the hour value is 0, set to 12.
+        if (hourValue == 0)
+        {
+            hourValue = 12;
+        }
+        
+        //Create the display string to return.
+        displayString = hourValue + ":" + minutes.getDisplayValue() + " "
+                        + daytimeOrNitetime;
+        return displayString;             
+        
     }
     /**
      * Update the internal string that represents the display.
